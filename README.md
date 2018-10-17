@@ -44,6 +44,8 @@ if __name__ == '__main__':
     MyTask().run()
 ```
 
+You can find this example in [examples](examples), as well as an example test in [tests](tests). For a real task, `examples` would be renamed to `tasks`.
+
 You can additionally provide detailed errors by raising a `TaskError`, such as
 ```
 class MyTask(TaskHelper):
