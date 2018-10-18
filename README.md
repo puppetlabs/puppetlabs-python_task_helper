@@ -21,12 +21,12 @@ This library works with Python 2.7 and later.
 ## Setup
 
 To use this library, include this module in a `Puppetfile`
-```
+```ruby
 mod 'puppetlabs-python_task_helper'
 ```
 
 Add it to your [task metadata](https://puppet.com/docs/bolt/1.x/writing_tasks.html#concept-677) (note that the helper expects to read arguments on stdin)
-```
+```json
 {
   "files": ["python_task_helper/lib/task_helper.py"],
   "input_method": "stdin"
@@ -37,7 +37,7 @@ Add it to your [task metadata](https://puppet.com/docs/bolt/1.x/writing_tasks.ht
 
 When writing your task include the library in your script, extend the `TaskHelper` module, and write the `task()` function. The `task()` function **must** take a hash of parameters as input (even if it's an empty hash), and **must** return a hash. The following is an example of a task that uses the library
 
-```
+```python
 #!/usr/bin/env python
 
 import os, sys
@@ -53,14 +53,14 @@ if __name__ == '__main__':
 ```
 
 You can then run the task like any other Bolt task
-```
+```shell
 bolt task run mymodule::task -n target.example.com name='Robert'
 ```
 
 You can find this example in [examples](examples), as well as an example test in [tests](tests). For a real task, `examples` would be renamed to `tasks`.
 
 You can additionally provide detailed errors by raising a `TaskError`, such as
-```
+```python
 class MyTask(TaskHelper):
     def task(self, args):
         raise TaskError('my task errored', 'mytask/error_kind', {'location': 'task entry'})
