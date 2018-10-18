@@ -7,5 +7,5 @@ from mytask import MyTask
 
 class TestHelper(unittest.TestCase):
     def test_task(self):
-        result = MyTask().task({'hello': 'world'})
-        self.assertEqual(result, {'result': 'world'})
+        result = MyTask().task({'name': 'Robert'})
+        self.assertEqual(result, {'result': 'Hi, my name is Robert'})
