@@ -24,10 +24,11 @@ To use this library in a task, import it in your `Puppetfile`
 ```
 mod 'puppetlabs-python_task_helper'
 ```
-add it to your metadata
+add it to your metadata (note that the helper expects to read arguments on stdin)
 ```
 {
-  "files": ["python_task_helper/lib/task_helper.py"]
+  "files": ["python_task_helper/lib/task_helper.py"],
+  "input_method": "stdin"
 }
 ```
 and write your task to extend the `TaskHelper` class.
