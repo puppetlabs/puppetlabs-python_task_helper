@@ -31,6 +31,7 @@ class TaskHelper:
             print(json.dumps(output))
         except TaskError as err:
             print(json.dumps(err.to_hash()))
+            exit(1)
         except Exception as err:
             print(json.dumps({
                 'kind': 'python.task.helper/exception',
@@ -38,3 +39,4 @@ class TaskHelper:
                 'msg': err.__str__(),
                 'details': { 'class': err.__class__.__name__ }
             }))
+            exit(1)
