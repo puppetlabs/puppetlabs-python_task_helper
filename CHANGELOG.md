@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.1.3
+
+**Fixed**
+- Task now uses exit code 1 when exiting due to an exception.
+
 ## Release 0.1.2
 
 **Fixed**
