@@ -1,4 +1,5 @@
 import json
+import pytest
 import sys
 import unittest
 from task_helper import TaskHelper, TaskError
@@ -35,7 +36,9 @@ class TestHelper(unittest.TestCase):
         stub_stdouts(self)
         class MyTask(TaskHelper):
             pass
-        MyTask().run()
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            MyTask().run()
+            assert pytest_wrapped_e.value.code == 1
         result = json.loads(sys.stdout.getvalue())
         self.assertEqual(result, {
             'kind': 'python.task.helper/exception',
@@ -50,7 +53,9 @@ class TestHelper(unittest.TestCase):
         class MyTask(TaskHelper):
             def task(self, args):
                 raise Exception('does not work')
-        MyTask().run()
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            MyTask().run()
+            assert pytest_wrapped_e.value.code == 1
         result = json.loads(sys.stdout.getvalue())
         self.assertEqual(result, {
             'kind': 'python.task.helper/exception',
@@ -65,7 +70,9 @@ class TestHelper(unittest.TestCase):
         class MyTask(TaskHelper):
             def task(self, args):
                 raise TaskError('a task error', 'mytask/failed', {'any': 'thing'})
-        MyTask().run()
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            MyTask().run()
+            assert pytest_wrapped_e.value.code == 1
         result = json.loads(sys.stdout.getvalue())
         self.assertEqual(result, {
             'kind': 'mytask/failed',
