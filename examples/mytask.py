@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import os, sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'python_task_helper', 'lib'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'python_task_helper', 'files'))
 from task_helper import TaskHelper
 
 class MyTask(TaskHelper):
