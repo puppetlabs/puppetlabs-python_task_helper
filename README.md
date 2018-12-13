@@ -28,7 +28,7 @@ mod 'puppetlabs-python_task_helper'
 Add it to your [task metadata](https://puppet.com/docs/bolt/1.x/writing_tasks.html#concept-677) (note that the helper expects to read arguments on stdin)
 ```json
 {
-  "files": ["python_task_helper/lib/task_helper.py"],
+  "files": ["python_task_helper/files/task_helper.py"],
   "input_method": "stdin"
 }
 ```
@@ -41,7 +41,7 @@ When writing your task include the library in your script, extend the `TaskHelpe
 #!/usr/bin/env python
 
 import os, sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'python_task_helper', 'lib'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'python_task_helper', 'files'))
 from task_helper import TaskHelper
 
 class MyTask(TaskHelper):
