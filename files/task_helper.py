@@ -11,9 +11,10 @@ class TaskError(Exception):
         self.issue_code = issue_code
 
     def to_hash(self):
-        result = { 'kind': self.kind, 'msg': self.__str__(), 'details': self.details }
+        error_hash = { 'kind': self.kind, 'msg': self.__str__(), 'details': self.details }
         if self.issue_code:
-            result['issue_code'] = self.issue_code
+            error_hash['issue_code'] = self.issue_code
+        result = { '_error': error_hash }
         return result
 
 class TaskHelper:
@@ -33,10 +34,11 @@ class TaskHelper:
             print(json.dumps(err.to_hash()))
             exit(1)
         except Exception as err:
-            print(json.dumps({
+            error_hash = {
                 'kind': 'python.task.helper/exception',
                 'issue_code': 'EXCEPTION',
                 'msg': err.__str__(),
                 'details': { 'class': err.__class__.__name__ }
-            }))
+            }
+            print(json.dumps({ '_error': error_hash }))
             exit(1)
