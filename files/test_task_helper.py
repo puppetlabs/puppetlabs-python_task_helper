@@ -41,10 +41,12 @@ class TestHelper(unittest.TestCase):
             assert pytest_wrapped_e.value.code == 1
         result = json.loads(sys.stdout.getvalue())
         self.assertEqual(result, {
-            'kind': 'python.task.helper/exception',
-            'issue_code': 'EXCEPTION',
-            'msg': 'TaskHelper.task is not implemented',
-            'details': {}
+            '_error': {
+                'kind': 'python.task.helper/exception',
+                'issue_code': 'EXCEPTION',
+                'msg': 'TaskHelper.task is not implemented',
+                'details': {}
+            }
         })
 
     def test_error_method(self):
@@ -58,10 +60,12 @@ class TestHelper(unittest.TestCase):
             assert pytest_wrapped_e.value.code == 1
         result = json.loads(sys.stdout.getvalue())
         self.assertEqual(result, {
-            'kind': 'python.task.helper/exception',
-            'issue_code': 'EXCEPTION',
-            'msg': 'does not work',
-            'details': { 'class': 'Exception' }
+            '_error': {
+                'kind': 'python.task.helper/exception',
+                'issue_code': 'EXCEPTION',
+                'msg': 'does not work',
+                'details': { 'class': 'Exception' }
+            }
         })
 
     def test_task_error(self):
@@ -75,9 +79,11 @@ class TestHelper(unittest.TestCase):
             assert pytest_wrapped_e.value.code == 1
         result = json.loads(sys.stdout.getvalue())
         self.assertEqual(result, {
-            'kind': 'mytask/failed',
-            'msg': 'a task error',
-            'details': {'any': 'thing'}
+            '_error': {
+                'kind': 'mytask/failed',
+                'msg': 'a task error',
+                'details': {'any': 'thing'}
+            }
         })
 
     def test_echo_method(self):
