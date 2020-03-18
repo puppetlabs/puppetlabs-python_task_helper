@@ -18,6 +18,12 @@ class TaskError(Exception):
         return result
 
 class TaskHelper:
+    def __init__(self):
+        self.debug_statements = []
+
+    def debug(self, statement):
+        self.debug_statements.append(statement)
+
     def task(self, args):
         raise TaskError(
             'TaskHelper.task is not implemented',
@@ -38,7 +44,10 @@ class TaskHelper:
                 'kind': 'python.task.helper/exception',
                 'issue_code': 'EXCEPTION',
                 'msg': err.__str__(),
-                'details': { 'class': err.__class__.__name__ }
+                'details': {
+                    'class': err.__class__.__name__,
+                    'debug': self.debug_statements
+                }
             }
             print(json.dumps({ '_error': error_hash }))
             exit(1)

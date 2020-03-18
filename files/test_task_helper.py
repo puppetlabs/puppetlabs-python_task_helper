@@ -64,7 +64,7 @@ class TestHelper(unittest.TestCase):
                 'kind': 'python.task.helper/exception',
                 'issue_code': 'EXCEPTION',
                 'msg': 'does not work',
-                'details': { 'class': 'Exception' }
+                'details': { 'class': 'Exception', 'debug': [] }
             }
         })
 
@@ -95,3 +95,27 @@ class TestHelper(unittest.TestCase):
         MyTask().run()
         result = json.loads(sys.stdout.getvalue())
         self.assertEqual(result, {'result': 'world'})
+
+    def test_debug_method(self):
+        stub_stdin(self, '{"hello": "world"}')
+        stub_stdouts(self)
+        class MyTask(TaskHelper):
+            def task(self, args):
+                self.debug('a debugging statement')
+                self.debug('another debugging statement')
+                raise TaskError(
+                    'a task error',
+                    'mytask/failed',
+                    { 'debug': self.debug_statements }
+                )
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            MyTask().run()
+            assert pytest_wrapped_e.value.code == 1
+        result = json.loads(sys.stdout.getvalue())
+        self.assertEqual(result, {
+            '_error': {
+                'kind': 'mytask/failed',
+                'msg': 'a task error',
+                'details': { 'debug': ['a debugging statement', 'another debugging statement'] }
+            }
+        })
