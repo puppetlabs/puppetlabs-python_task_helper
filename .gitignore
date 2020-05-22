@@ -104,3 +104,4 @@ venv.bak/
 
 # Ruby Gemfile
 Gemfile.lock
+.bundle/
