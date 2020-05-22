@@ -1,7 +1,7 @@
 {
   "name": "puppetlabs-python_task_helper",
-  "version": "0.4.0",
-  "author": "Puppet, Inc.",
+  "version": "0.4.2",
+  "author": "puppetlabs",
   "summary": "A Python helper library for use by Puppet Tasks",
   "license": "Apache-2.0",
   "source": "https://github.com/puppetlabs/puppetlabs-python_task_helper",
