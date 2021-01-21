@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
 You can then run the task like any other Bolt task
 ```shell
-bolt task run mymodule::task -n target.example.com name='Robert'
+bolt task run mymodule::task -t target.example.com name='Robert'
 ```
 
 You can find this example in [examples](examples), as well as an example test in [tests](tests). For a real task, `examples` would be renamed to `tasks`.
