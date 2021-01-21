@@ -1,6 +1,6 @@
 {
   "name": "puppetlabs-python_task_helper",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "author": "puppetlabs",
   "summary": "A Python helper library for use by Puppet Tasks",
   "license": "Apache-2.0",
@@ -75,7 +75,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.7.0 < 7.0.0"
+      "version_requirement": ">= 4.7.0 < 8.0.0"
     }
   ],
   "pdk-version": "1.7.1",
