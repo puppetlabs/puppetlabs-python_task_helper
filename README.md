@@ -1,7 +1,7 @@
 
 # python_task_helper
 
-A Python helper library for use by [Puppet Tasks](https://puppet.com/docs/bolt/1.x/writing_tasks.html). It provides a class that handles error generation, simplifies JSON input and output, and makes testing your task easier. It requires Bolt >= 1.1 and Puppet Enterprise >= 2019.0.
+A Python helper library for use by [Puppet Tasks](https://puppet.com/docs/bolt/latest/writing_tasks.html). It provides a class that handles error generation, simplifies JSON input and output, and makes testing your task easier. It requires Bolt >= 1.1 and Puppet Enterprise >= 2019.0.
 
 #### Table of Contents
 
