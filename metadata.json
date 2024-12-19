@@ -1,6 +1,6 @@
 {
   "name": "puppetlabs-python_task_helper",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "puppetlabs",
   "summary": "A Python helper library for use by Puppet Tasks",
   "license": "Apache-2.0",
