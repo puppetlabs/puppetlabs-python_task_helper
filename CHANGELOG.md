@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.6.0
+
+## New features
+
+- Bump maximum Puppet version to include 8.x
+
+## Changes
+
+- Updated module with `PDK update` to ensure it consumes current templates
+
 ## Release 0.5.0
 
 ### New features
