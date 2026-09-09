@@ -12,19 +12,19 @@
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "7"
+        "9"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
-        "7"
+        "9"
       ]
     },
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
-        "7"
+        "9"
       ]
     },
     {
@@ -36,39 +36,20 @@
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-        "8"
+        "12"
       ]
     },
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "16.04"
+        "24.04"
       ]
     },
     {
-      "operatingsystem": "windows",
+      "operatingsystem": "Windows",
       "operatingsystemrelease": [
-        "2008 R2",
-        "2012 R2",
-        "10"
-      ]
-    },
-    {
-      "operatingsystem": "Fedora",
-      "operatingsystemrelease": [
-        "25"
-      ]
-    },
-    {
-      "operatingsystem": "Darwin",
-      "operatingsystemrelease": [
-        "16"
-      ]
-    },
-    {
-      "operatingsystem": "SLES",
-      "operatingsystemrelease": [
-        "12"
+        "2019",
+        "2022"
       ]
     }
   ],
