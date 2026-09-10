@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.0.0
+
+### Changes
+
+- **Breaking:** Updated to support Puppet 9 (`>= 8.0.0 < 10.0.0`) and dropped support for Puppet 7 and earlier.
+- Narrowed the supported OS matrix to Puppet 9 targets: RedHat/CentOS/OracleLinux 9, Debian 12, Ubuntu 24.04, Windows 2019/2022.
+- Updated module with `PDK update` to ensure it consumes current templates.
+
 ## Release 0.6.0
 
 ## New features
